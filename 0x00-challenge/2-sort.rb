@@ -1,31 +1,14 @@
-###
-#
-#  Sort integer arguments (ascending) 
-#
-###
-
-result = []
+integers = []
 ARGV.each do |arg|
-    # skip if not integer
-    next if arg !~ /^-?[0-9]+$/
+  # skip if not integer
+  next unless arg =~ /^-?[0-9]+$/
 
-    # convert to integer
-    i_arg = arg.to_i
-    
-    # insert result at the right position
-    is_inserted = false
-    i = 0
-    l = result.size
-    while !is_inserted && i < l do
-        if result[i] < i_arg
-            result.insert(i, i_arg)
-            is_inserted = true
-            break
-        end
-        i += 1
-    end
-    result << i_arg if !is_inserted
+  # convert to integer and add to the list
+  integers << arg.to_i
 end
 
-puts result
+# sort the integers in ascending order
+sorted_integers = integers.sort
 
+# print the sorted integers
+puts sorted_integers
